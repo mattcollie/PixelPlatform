@@ -13,39 +13,24 @@ var JUMP_SPEED = 8;
 var playerTag;
 
 /*===========Load Tiles==========*/
-var tiles = ["images/backgrounds/background_grass.png",
-            "images/backgrounds/background_star.png",
-            "images/tiles/block_001.png",
-            "images/tiles/flower_000.png",
-            "images/tiles/flowerOrange_000.png",
-            "images/tiles/flowerOrange_001.png",
-            "images/tiles/flowerOrange_002.png",
-            "images/tiles/flowerOrange_003.png",
-            "images/tiles/flowerPurple_000.png",
-            "images/tiles/flowerPurple_001.png",
-            "images/tiles/flowerPurple_002.png",
-            "images/tiles/flowerPurple_003.png",
-            "images/tiles/flowerYellow_000.png",
-            "images/tiles/flowerYellow_001.png",
-            "images/tiles/flowerYellow_002.png",
-            "images/tiles/flowerYellow_003.png",
-            "images/tiles/sky_000.png"];
+var tiles = ["http://www.slothpie.co.nf/images/backgrounds/background_grass.png"];
 var tileRaster = [];
         tileRaster[0] = new Raster(tiles[0]);
         tileRaster[0].position = new Point(500, FLOOR_HEIGHT / 0.91);
 /*==============End==============*/
 
 /*===========Load Clouds==========*/
-var clouds = ["images/clouds/cloud_0.png",
-            "images/clouds/cloud_1.png",
-            "images/clouds/cloud_2.png",
-            "images/clouds/cloud_3.png",
-            "images/clouds/cloud_4.png",
-            "images/clouds/cloud_5.png",
-            "images/clouds/cloud_6.png",
-            "images/clouds/cloud_7.png",
-            "images/clouds/cloud_8.png",
-            "images/clouds/cloud_9.png"];
+var cloudSource = "http://www.slothpie.co.nf/images/clouds/";
+var clouds = [cloudSource + "cloud_0.png",
+            cloudSource + "cloud_1.png",
+            cloudSource + "cloud_2.png",
+            cloudSource + "cloud_3.png",
+            cloudSource + "cloud_4.png",
+            cloudSource + "cloud_5.png",
+            cloudSource + "cloud_6.png",
+            cloudSource + "cloud_7.png",
+            cloudSource + "cloud_8.png",
+            cloudSource + "cloud_9.png"];
 var cloudRaster = [];
 var cloudSpeed = [];
 var cloudPosition = 0;
@@ -59,22 +44,23 @@ for(var i=0; i<clouds.length;i++)
 /*==============End==============*/
 
 /*===========Load Player==========*/
-var player = ["images/characters/player/player_000.png",
-            "images/characters/player/player_001.png",
-            "images/characters/player/player_002.png",
-            "images/characters/player/player_003.png",
-            "images/characters/player/player_004.png",
-            "images/characters/player/player_005.png",
-            "images/characters/player/player_006.png",
-            "images/characters/player/player_007.png",
-            "images/characters/player/daughter_000.png",
-            "images/characters/player/daughter_001.png",
-            "images/characters/player/daughter_002.png",
-            "images/characters/player/daughter_003.png",
-            "images/characters/player/daughter_004.png",
-            "images/characters/player/daughter_005.png",
-            "images/characters/player/daughter_006.png",
-            "images/characters/player/daughter_007.png"];
+var playerSource = "http://www.slothpie.co.nf/images/characters/player/";
+var player = [playerSource + "player_000.png",
+            playerSource + "player_001.png",
+            playerSource + "player_002.png",
+            playerSource + "player_003.png",
+            playerSource + "player_004.png",
+            playerSource + "player_005.png",
+            playerSource + "player_006.png",
+            playerSource + "player_007.png",
+            playerSource + "daughter_000.png",
+            playerSource + "daughter_001.png",
+            playerSource + "daughter_002.png",
+            playerSource + "daughter_003.png",
+            playerSource + "daughter_004.png",
+            playerSource + "daughter_005.png",
+            playerSource + "daughter_006.png",
+            playerSource + "daughter_007.png"];
 var playerRaster = [];
 for (var i = 0; i < player.length;i++ )
 {
@@ -83,7 +69,7 @@ for (var i = 0; i < player.length;i++ )
     playerRaster[i].position = new Point(-100, -100);
 }
 var _gender = "male";
-// 0-7 Male, 8-15 Female, 16-24 Genderquere
+// 0-7 Male, 8-15 Female
 var _currPlayerRaster = 0;
 var _oldPlayerRaster = 0;
 playerRaster[_currPlayerRaster].position = new Point(SCREEN_WIDTH / 2, PLAYER_HEIGHT/2);
@@ -290,12 +276,9 @@ function checkPlayer()
 function switchRaster(switchTo)
 {
     var _temp = 0;
-    if(_gender === "female"){
+    if(_gender === "female")
         _temp = 8;
-    }
-    else if(_gender === "genderquere"){
-        _temp = 16;
-    }
+    
     var _tempPoint = playerRaster[(_currPlayerRaster)].position;
 
     playerRaster[(_currPlayerRaster)].position = new Point(-100, -100);
