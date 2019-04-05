@@ -4,15 +4,15 @@ Basic pixel platform website design
 This is a simple Pixel platformer which has been created
 using the paper.js library.
 
-####Name Tag
+#### Name Tag
 This is placed inside the html source just so it's easier
 for anyone to edit
 
-####Css Pages
+#### Css Pages
 Css Pages are there to style everything and without them
 You wouldn't have any style
 
-####Javascript
+#### Javascript
 paper.js is an opensource library for animation through
 javascript www.paperjs.org
 
@@ -26,5 +26,3 @@ js document.
 Have fun an Enjoy this Pixel Platformer
 
 More Development to follow
-
-Just use the website: http://www.slothpie.com
